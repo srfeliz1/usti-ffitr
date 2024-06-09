@@ -1,23 +1,15 @@
 <?php
-// Configurações de conexão
-$host = 'localhost';
-$usuario = 'root';
-$senha = ''; // Sua senha do MySQL
-$banco_de_dados = 'login'; // Nome do seu banco de dados
+// Configurações do banco de dados
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "login";
 
 // Conexão com o banco de dados
-$conexao = new mysqli($host, $usuario, $senha, $banco_de_dados);
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-// Verifica se há erros na conexão
-if ($conexao->connect_error) {
-    die("Erro de conexão: " . $conexao->connect_error);
+// Verifica a conexão
+if ($conn->connect_error) {
+    die("Erro de conexão: " . $conn->connect_error);
 }
-
-// Defina o conjunto de caracteres para UTF-8
-$conexao->set_charset("utf8");
-
-// Agora você está conectado ao banco de dados e pronto para executar consultas.
-
-// Lembre-se de fechar a conexão quando terminar de usá-la:
-// $conexao->close();
 ?>
